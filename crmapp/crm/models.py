@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -9,7 +10,8 @@ class Customer(models.Model):
     tin = models.CharField(max_length=13, unique=True)
     mail = models.EmailField(blank=True)
     phone = models.CharField(max_length=16, blank=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE,
+                                   blank=True)
 
 
 class Location(models.Model):
@@ -19,7 +21,7 @@ class Location(models.Model):
     apt_number = models.CharField(max_length=6, blank=True)
     is_hq = models.BooleanField(default=False)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE,
-                                    related_name='customer_id')
+                                    related_name='customer_id', blank=True)
 
 
 class Comment(models.Model):

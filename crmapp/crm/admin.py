@@ -20,7 +20,7 @@ class LocationAdmin(admin.ModelAdmin):
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    fields = ['name', 'tin']
+    fields = ['name', 'tin', 'created_by']
     list_display = ['name', 'tin']
     search_fields = ['name', 'tin']
 
@@ -29,4 +29,4 @@ class CustomerAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     fields = ['content', 'location_id']
     list_display = ['content', 'date_created', 'location_id']
-    search_fields = ['location_id' ]
+    search_fields = ['location_id']

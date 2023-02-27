@@ -5,8 +5,9 @@ from rest_framework import routers
 from .views import CustomerViewSet, LocationViewSet, CustomerMainInfoViewSet, CommentViewSet
 
 router = routers.DefaultRouter()
-router.register('customers', CommentViewSet)
+router.register('customers', CustomerViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('customers', include(router.urls))
 ]
